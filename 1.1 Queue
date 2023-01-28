@@ -28,7 +28,7 @@ public class Main {
 
         //menghapus element queue menggunakan metode remove
         String nama = antrianPendaftaran.remove();
-        System.out.println("Menghapus dari Antrian Seleksi Pendaftaran YG : "+nama +"| Daftar antrian baru : "+antrianPendaftaran);
+        System.out.println("Menghapus dari Antrian Seleksi Pendaftaran YG : "+nama +" | Daftar antrian baru : "+antrianPendaftaran);
         System.out.println("................................................................");
 
 
