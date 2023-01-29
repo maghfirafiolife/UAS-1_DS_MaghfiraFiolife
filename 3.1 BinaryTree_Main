@@ -1,0 +1,32 @@
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Nama : Maghfira Fiolife");
+        System.out.println("Kelas : TIF PK-22");
+        System.out.println("UAS STRUKTUR DATA SENESTER 1");
+        System.out.println("--------------------------------------------------------");
+
+        Tree IntTree = new Tree();
+        IntTree.insert(12);
+        IntTree.insert(15);
+        IntTree.insert(99);
+        IntTree.insert(67);
+        IntTree.insert(23);
+        IntTree.insert(57);
+        IntTree.insert(88);
+        IntTree.insert(171);
+        IntTree.insert(76);
+
+        IntTree.traverseInOrder();
+
+        System.out.println(IntTree.get(67));
+        System.out.println(IntTree.get(88));
+        System.out.println(IntTree.get(57));
+        //menampilkan data maksimal
+        System.out.println("Data Maksimalnya Adalah : "+IntTree.max());
+        //menampilkan data minimum
+        System.out.println("Data Minimumnya Adalah : "+IntTree.min());
+
+    }
+}
