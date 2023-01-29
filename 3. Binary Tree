@@ -1,0 +1,187 @@
+////////////////////////////////////////////////////// MAIN.JAVA
+public class Main {
+
+    public static void main(String[] args) {
+
+        System.out.println("Nama : Maghfira Fiolife");
+        System.out.println("Kelas : TIF PK-22");
+        System.out.println("UAS STRUKTUR DATA SENESTER 1");
+        System.out.println("--------------------------------------------------------");
+
+        Tree IntTree = new Tree();
+        IntTree.insert(12);
+        IntTree.insert(15);
+        IntTree.insert(99);
+        IntTree.insert(67);
+        IntTree.insert(23);
+        IntTree.insert(57);
+        IntTree.insert(88);
+        IntTree.insert(171);
+        IntTree.insert(76);
+
+        IntTree.traverseInOrder();
+
+        System.out.println(IntTree.get(67));
+        System.out.println(IntTree.get(88));
+        System.out.println(IntTree.get(57));
+        //menampilkan data maksimal
+        System.out.println("Data Maksimalnya Adalah : "+IntTree.max());
+        //menampilkan data minimum
+        System.out.println("Data Minimumnya Adalah : "+IntTree.min());
+
+    }
+}
+
+/////////////////////////////////////////////////////// TREE.JAVA
+public class Tree {
+    private TreeNode root;
+
+    public void insert(int value){
+        if(root == null){
+            root = new TreeNode(value);
+        } else{
+            root.insert(value);
+        }
+    }
+    public int min() {
+        if (root == null) {
+            return Integer.MIN_VALUE;
+        }
+        else {
+            return root.min();
+        }
+    }
+
+    public int max() {
+        if (root == null) {
+            return Integer.MAX_VALUE;
+        }
+        else {
+            return root.max();
+        }
+    }
+    public TreeNode get(int value) {
+        if(root != null){
+            return root.get(value);
+        }
+        return null;
+    }
+
+    public void traverseInOrder(){
+        if(root != null){
+            root.traverseInOrder();
+        }
+    }
+}
+
+//////////////////////////////////////////////////////////// TREENODE.JAVA
+public class TreeNode {
+
+    private int data;
+    private TreeNode leftChild;
+    private TreeNode rightChild;
+
+    public TreeNode(int data) {
+        this.data = data;
+    }
+
+    public void insert(int value) {
+        if (value == data) {
+            return;
+        }
+
+        if (value < data) {
+            if (leftChild == null) {
+                leftChild = new TreeNode(value);
+            }
+            else {
+                leftChild.insert(value);
+            }
+        }
+        else {
+            if (rightChild == null) {
+                rightChild = new TreeNode(value);
+            }
+            else {
+                rightChild.insert(value);
+            }
+        }
+    }
+
+    public TreeNode get(int value) {
+        if (value == data) {
+            return this;
+        }
+
+        if (value < data) {
+            if (leftChild != null) {
+                return leftChild.get(value);
+            }
+        }
+        else {
+            if (rightChild != null) {
+                return rightChild.get(value);
+            }
+        }
+
+        return null;
+    }
+
+    public int min() {
+        if (leftChild == null) {
+            return data;
+        }
+        else {
+            return leftChild.min();
+        }
+    }
+
+    public int max() {
+        if (rightChild == null) {
+            return data;
+        }
+        else {
+            return rightChild.max();
+        }
+    }
+
+    public void traverseInOrder() {
+        if (leftChild != null) {
+            leftChild.traverseInOrder();
+        }
+        System.out.print(data + ", ");
+        if (rightChild != null) {
+            rightChild.traverseInOrder();
+        }
+    }
+
+    public int getData() {
+        return data;
+    }
+
+    public void setData(int data) {
+        this.data = data;
+    }
+
+    public TreeNode getLeftChild() {
+        return leftChild;
+    }
+
+    public void setLeftChild(TreeNode leftChild) {
+        this.leftChild = leftChild;
+    }
+
+    public TreeNode getRightChild() {
+        return rightChild;
+    }
+
+    public void setRightChild(TreeNode rightChild) {
+        this.rightChild = rightChild;
+    }
+
+    public String toString() {
+        return "Data = " + data;
+    }
+}
+
+//////////////////////////////////////////////////////////////// FINISH
